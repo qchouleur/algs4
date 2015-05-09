@@ -86,4 +86,80 @@
 		8
 		9
 
+1.1.13.		public static void Transpose2DArrayAndPrint(int[,] array)
+		{
+			int M = array.GetLength(0);
+			int N = array.GetLength(1);
 
+			for(int m = 0; m < M; m++)
+			{
+				for(int n = 0; n < N / 2; n++)
+				{
+					int copy = array[m, n];
+					array[m, n] = array[n, m];
+					array[n, m] = copy;
+				}
+			}
+
+			for(int m = 0; m < M; m++)
+			{
+				for(int n = 0; n < N; n++)
+				{
+					System.Console.Write(array[m, n] + " ");
+				}
+				System.Console.WriteLine();
+			}
+		}
+
+1.1.14.		public static int lg(int N)
+		{
+			int result = 0;
+			for(int n = N; n > 1; n /= 2) result++;
+			return result;
+		}
+
+1.1.15.		public static int[] histogram(int[] a, int M)
+		{
+			int[] histogram = new int[M];
+
+			for(int i = 0; i < M; i++)
+			{
+				for(int j = 0; j < a.Length; j++)
+				{
+					if(a[j] == i) histogram[i]++;
+				}
+			}
+
+			return histogram;
+		}
+
+1.1.16.		311361142246
+
+1.1.17.		The base case will never be reached. A call to exR2(3) will result in calls to exR2(0),
+		exR2(-3), exR2(-6), and so forth until a StackOverflowException occurs.
+
+1.1.18.		mystery(2, 25) => 50, mystery(3, 11) => 33
+		The function mystery computes the multiplication operation.
+		
+		By replacing + with * and return 0 by return 1, we now have 
+		the a^b function.
+
+1.1.19. 	F(53) took less 1 hour to compute.
+		
+		public static long[] F(long N)
+		{
+			long[] serie = new long[N];
+			serie[0] = 0;
+			serie[1] = 1;
+			for(long i = 2; i < N; i++)
+			{
+				serie[i] = serie[i - 1] + serie[i - 2];
+			}
+
+			return serie;
+		}
+
+1.1.20.		public static double LnOfFactorial(int N)
+		{
+			return (N == 1) ? 0 : Math.Log(N) + LnOfFactorial(N - 1);
+		}
